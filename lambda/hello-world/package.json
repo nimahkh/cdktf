@@ -1,0 +1,14 @@
+{
+  "name": "lambda-hello-world",
+  "version": "1.0.0",
+  "scripts": {
+    "compile": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.137"
+  },
+  "dependencies": {
+    "typescript": "^5.4.5"
+  }
+}

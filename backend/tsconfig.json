@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
+    "strict": true,
+    "target": "ES2022",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",  
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@challenge/types": ["node_modules/@challenge-types/dist/index.d.ts"]
+    }, 
+  },
+  "include": ["src/**/*", "tests/**/*"],
+}
