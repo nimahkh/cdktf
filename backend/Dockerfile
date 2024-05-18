@@ -1,21 +1,16 @@
-# Use a Node.js base image
-FROM node:18
-
-# Create app directory
+# Build stage
+FROM node:alpine AS builder
 WORKDIR /usr/src/app
-
-# Install app dependencies
 COPY package*.json ./
-RUN npm install
-
-# Bundle app source
+RUN npm ci
 COPY . .
-
-# Build TypeScript files
 RUN npm run build
 
-# Expose the application port
+# Production stage
+FROM node:18-slim
+WORKDIR /usr/src/app
+COPY --from=builder /usr/src/app/dist ./dist
+COPY package*.json ./
+RUN npm ci --only=production
 EXPOSE 5001
-
-# Run the app
 CMD ["node", "dist/index.js"]
